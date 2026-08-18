@@ -33,8 +33,8 @@ _ACCENT_THEME = gr.themes.Soft().set(
     button_primary_text_color_dark="#111111",
     slider_color_dark="#ffffff",
     input_border_color_focus_dark="#ffffff",
-    checkbox_background_color_selected_dark="#ffffff",
-    checkbox_border_color_selected_dark="#ffffff",
+    # checkbox fill left at the default accent color: its checkmark icon is a fixed
+    # white SVG with no separate color variable, so a white fill would make it invisible.
 )
 from acestep.ui.gradio.interfaces.dataset import create_dataset_section
 from acestep.ui.gradio.interfaces.generation import (
