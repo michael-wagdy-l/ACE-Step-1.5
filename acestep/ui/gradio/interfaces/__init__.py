@@ -65,6 +65,15 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
     with gr.Blocks(
         title=t("app.title"),
         theme=gr.themes.Soft(),
+        js="""
+        function forceDarkModeDefault() {
+            const url = new URL(window.location);
+            if (!url.searchParams.has('__theme')) {
+                url.searchParams.set('__theme', 'dark');
+                window.location.href = url.href;
+            }
+        }
+        """,
         head=get_audio_player_preferences_head() + ("" if service_mode else get_user_preferences_head()) + """
         <script>
         /* Flip tooltips upward when they would overflow the viewport bottom.
