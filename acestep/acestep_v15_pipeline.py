@@ -645,7 +645,10 @@ def main():
             auth = (args.auth_username, args.auth_password)
             print("Authentication enabled")
 
-        allowed_paths = [output_dir]
+        assets_dir = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets"
+        )
+        allowed_paths = [output_dir, assets_dir]
         for p in args.allowed_path:
             if p and p not in allowed_paths:
                 allowed_paths.append(p)

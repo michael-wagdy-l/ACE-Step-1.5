@@ -95,6 +95,11 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
             text-align: center;
             margin-bottom: 2rem;
         }
+        .app-logo {
+            height: 64px;
+            margin: 0 auto 0.5rem;
+            display: block;
+        }
         .section-header {
             background: linear-gradient(90deg, #4CAF50, #45a049);
             color: white;
@@ -322,6 +327,7 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
         
         gr.HTML(f"""
         <div class="main-header">
+            <img src="/file=assets/logo.png" alt="logo" class="app-logo" />
             <h1>{t("app.title")}</h1>
             <p>{t("app.subtitle")}</p>
         </div>
