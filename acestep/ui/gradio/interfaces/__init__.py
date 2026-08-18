@@ -23,6 +23,19 @@ Layout:
 """
 import gradio as gr
 from acestep.ui.gradio.i18n import get_i18n, t
+
+# Accent color for the UI (buttons, focus rings, sliders, etc.) - white in dark mode only;
+# light mode keeps the Soft theme's default purple.
+_ACCENT_THEME = gr.themes.Soft().set(
+    button_primary_background_fill_dark="#ffffff",
+    button_primary_background_fill_hover_dark="#f2f2f2",
+    button_primary_border_color_dark="#ffffff",
+    button_primary_text_color_dark="#111111",
+    slider_color_dark="#ffffff",
+    input_border_color_focus_dark="#ffffff",
+    checkbox_background_color_selected_dark="#ffffff",
+    checkbox_border_color_selected_dark="#ffffff",
+)
 from acestep.ui.gradio.interfaces.dataset import create_dataset_section
 from acestep.ui.gradio.interfaces.generation import (
     create_advanced_settings_section,
@@ -64,7 +77,7 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
     
     with gr.Blocks(
         title=t("app.title"),
-        theme=gr.themes.Soft(),
+        theme=_ACCENT_THEME,
         js="""
         function forceDarkModeDefault() {
             const url = new URL(window.location);
