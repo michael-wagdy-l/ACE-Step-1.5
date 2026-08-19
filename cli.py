@@ -866,7 +866,7 @@ def run_wizard(args, configure_only: bool = False, default_config_path: Optional
 
         args.batch_size = _prompt_int(
             "Number of outputs (audio clips) to generate",
-            args.batch_size if args.batch_size is not None else 2,
+            args.batch_size if args.batch_size is not None else 1,
             min_value=1,
         )
 

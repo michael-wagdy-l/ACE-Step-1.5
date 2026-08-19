@@ -20,7 +20,7 @@ def store_batch_in_queue(
     codes=None,
     scores=None,
     allow_lm_batch=False,
-    batch_size=2,
+    batch_size=1,
     generation_params=None,
     lm_generated_metadata=None,
     extra_outputs=None,

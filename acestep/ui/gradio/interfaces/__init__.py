@@ -24,17 +24,32 @@ Layout:
 import gradio as gr
 from acestep.ui.gradio.i18n import get_i18n, t
 
-# Accent color for the UI (buttons, focus rings, sliders, etc.) - white in dark mode only;
-# light mode keeps the Soft theme's default purple.
+# Accent color for the UI (buttons, focus rings, sliders, labels, links, etc.) - white in
+# dark mode only; light mode keeps the Soft theme's default indigo/purple (primary_hue and
+# secondary_hue both default to colors.indigo in gr.themes.Soft()).
 _ACCENT_THEME = gr.themes.Soft().set(
     button_primary_background_fill_dark="#ffffff",
     button_primary_background_fill_hover_dark="#f2f2f2",
     button_primary_border_color_dark="#ffffff",
     button_primary_text_color_dark="#111111",
+    button_secondary_background_fill_hover_dark="#ffffff",
+    button_secondary_text_color_hover_dark="#111111",
     slider_color_dark="#ffffff",
     input_border_color_focus_dark="#ffffff",
-    # checkbox fill left at the default accent color: its checkmark icon is a fixed
-    # white SVG with no separate color variable, so a white fill would make it invisible.
+    block_label_background_fill_dark="#ffffff",
+    block_label_text_color_dark="#111111",
+    block_title_text_color_dark="#111111",
+    checkbox_label_background_fill_selected_dark="#ffffff",
+    checkbox_label_text_color_selected_dark="#111111",
+    checkbox_border_color_focus_dark="#ffffff",
+    checkbox_border_color_selected_dark="#ffffff",
+    loader_color_dark="#ffffff",
+    link_text_color_dark="#ffffff",
+    link_text_color_hover_dark="#f2f2f2",
+    stat_background_fill_dark="#ffffff",
+    # checkbox fill (the small box itself) left at the default accent color: its checkmark
+    # icon is a fixed white SVG with no separate color variable, so a white fill would make
+    # it invisible.
 )
 from acestep.ui.gradio.interfaces.dataset import create_dataset_section
 from acestep.ui.gradio.interfaces.generation import (
