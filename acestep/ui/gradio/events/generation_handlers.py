@@ -46,6 +46,10 @@ from .generation.llm_actions import (  # noqa: F401
     transcribe_audio_codes,
     analyze_src_audio,
 )
+from .generation.youtube_import import (  # noqa: F401
+    download_youtube_audio_to_temp,
+    fetch_youtube_audio_for_field,
+)
 from .generation.ui_helpers import (  # noqa: F401
     NON_THINK_DCW_DEFAULTS,
     THINK_DCW_DEFAULTS,

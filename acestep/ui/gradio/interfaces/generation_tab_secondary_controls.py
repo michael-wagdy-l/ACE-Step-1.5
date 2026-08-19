@@ -72,6 +72,18 @@ def build_custom_mode_controls() -> dict[str, Any]:
                     type="filepath",
                     show_label=True,
                 )
+                with gr.Row():
+                    youtube_url_ref = gr.Textbox(
+                        placeholder=t("generation.youtube_url_placeholder"),
+                        show_label=False,
+                        scale=8,
+                    )
+                    fetch_youtube_ref_btn = gr.Button(
+                        t("generation.fetch_youtube_btn"),
+                        variant="secondary",
+                        size="sm",
+                        scale=2,
+                    )
             with gr.Column(scale=8):
                 with gr.Row(equal_height=True):
                     with gr.Column(scale=1):
@@ -111,6 +123,8 @@ def build_custom_mode_controls() -> dict[str, Any]:
     return {
         "custom_mode_group": custom_mode_group,
         "reference_audio": reference_audio,
+        "youtube_url_ref": youtube_url_ref,
+        "fetch_youtube_ref_btn": fetch_youtube_ref_btn,
         "captions": captions,
         "format_caption_btn": format_caption_btn,
         "lyrics": lyrics,

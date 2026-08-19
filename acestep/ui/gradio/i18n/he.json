@@ -88,6 +88,8 @@
     "source_audio": "אודיו מקור",
     "convert_codes_btn": "המר לקודים",
     "analyze_btn": "🔍 ניתוח",
+    "youtube_url_placeholder": "הדבק כתובת URL של YouTube...",
+    "fetch_youtube_btn": "⬇️ הבא",
     "sample_btn": "🎲 לחץ עליי",
     "lm_codes_hints": "🎼 רמזי קודי LM",
     "lm_codes_audio_upload_label": "אודיו → קודים (כלי עזר)",
@@ -325,7 +327,10 @@
     "invalid_timesteps_format": "⚠️ פורמט צעדי זמן לא תקין. משתמש בלוח זמנים ברירת מחדל.",
     "timesteps_out_of_range": "⚠️ צעדי זמן חייבים להיות בטווח [0, 1].",
     "timesteps_count_mismatch": "⚠️ מספר צעדי הזמן ({actual}) שונה מהמוגדר ({expected}).",
-    "audio_format_invalid": "פורמט ה-{role} לא תקין או לא נתמך. אנא העלה קובץ אודיו תקין."
+    "audio_format_invalid": "פורמט ה-{role} לא תקין או לא נתמך. אנא העלה קובץ אודיו תקין.",
+    "youtube_url_missing": "⚠️ הדבק כתובת URL של YouTube לפני כן.",
+    "youtube_fetch_failed": "❌ נכשל בהבאת אודיו מיוטיוב: {error}",
+    "youtube_fetch_success": "✅ האודיו נשלף בהצלחה מיוטיוב"
   },
   "training": {
     "tab_title": "🎓 אימון LoRA",

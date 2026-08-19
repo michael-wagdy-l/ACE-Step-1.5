@@ -88,6 +88,8 @@
     "source_audio": "源音频",
     "convert_codes_btn": "转换为代码",
     "analyze_btn": "🔍 分析",
+    "youtube_url_placeholder": "粘贴 YouTube 链接...",
+    "fetch_youtube_btn": "⬇️ 获取",
     "sample_btn": "🎲 试试看",
     "lm_codes_hints": "🎼 LM 代码提示",
     "lm_codes_audio_upload_label": "音频 → Codes（工具）",
@@ -319,7 +321,10 @@
     "skipping_metas_cot": "⚡ 跳过 Phase 1 元数据 COT（样本已格式化）",
     "invalid_timesteps_format": "⚠️ 时间步格式无效，使用默认调度。",
     "timesteps_out_of_range": "⚠️ 时间步必须在 [0, 1] 范围内，使用默认调度。",
-    "timesteps_count_mismatch": "⚠️ 时间步数量 ({actual}) 与推理步数 ({expected}) 不匹配，将使用时间步数量。"
+    "timesteps_count_mismatch": "⚠️ 时间步数量 ({actual}) 与推理步数 ({expected}) 不匹配，将使用时间步数量。",
+    "youtube_url_missing": "⚠️ 请先粘贴一个 YouTube 链接。",
+    "youtube_fetch_failed": "❌ 获取 YouTube 音频失败：{error}",
+    "youtube_fetch_success": "✅ 已从 YouTube 获取音频"
   },
   "training": {
     "tab_title": "🎓 LoRA 训练",

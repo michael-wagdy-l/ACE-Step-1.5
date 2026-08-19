@@ -88,6 +88,8 @@
     "source_audio": "ソースオーディオ",
     "convert_codes_btn": "コードに変換",
     "analyze_btn": "🔍 分析",
+    "youtube_url_placeholder": "YouTubeのURLを貼り付け...",
+    "fetch_youtube_btn": "⬇️ 取得",
     "sample_btn": "🎲 お試し",
     "lm_codes_hints": "🎼 LM コードヒント",
     "lm_codes_audio_upload_label": "音声 → コード（ユーティリティ）",
@@ -308,7 +310,10 @@
     "skipping_metas_cot": "⚡ Phase 1 メタデータ COT をスキップ（サンプルは既にフォーマット済み）",
     "invalid_timesteps_format": "⚠️ タイムステップ形式が無効です。デフォルトスケジュールを使用します。",
     "timesteps_out_of_range": "⚠️ タイムステップは [0, 1] の範囲内である必要があります。デフォルトスケジュールを使用します。",
-    "timesteps_count_mismatch": "⚠️ タイムステップ数 ({actual}) が推論ステップ数 ({expected}) と異なります。タイムステップ数を使用します。"
+    "timesteps_count_mismatch": "⚠️ タイムステップ数 ({actual}) が推論ステップ数 ({expected}) と異なります。タイムステップ数を使用します。",
+    "youtube_url_missing": "⚠️ 先にYouTubeのURLを貼り付けてください。",
+    "youtube_fetch_failed": "❌ YouTube音声の取得に失敗しました: {error}",
+    "youtube_fetch_success": "✅ YouTubeから音声を取得しました"
   },
   "training": {
     "tab_title": "🎓 LoRA トレーニング",

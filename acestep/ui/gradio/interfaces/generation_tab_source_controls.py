@@ -20,7 +20,20 @@ def build_source_audio_controls() -> dict[str, Any]:
     """
 
     with gr.Row(equal_height=True, visible=False) as src_audio_row:
-        src_audio = gr.Audio(label=t("generation.source_audio"), type="filepath", scale=10)
+        with gr.Column(scale=10):
+            src_audio = gr.Audio(label=t("generation.source_audio"), type="filepath")
+            with gr.Row():
+                youtube_url_src = gr.Textbox(
+                    placeholder=t("generation.youtube_url_placeholder"),
+                    show_label=False,
+                    scale=8,
+                )
+                fetch_youtube_src_btn = gr.Button(
+                    t("generation.fetch_youtube_btn"),
+                    variant="secondary",
+                    size="sm",
+                    scale=2,
+                )
         with gr.Column(scale=1, min_width=80):
             analyze_btn = gr.Button(
                 t("generation.analyze_btn"),
@@ -33,6 +46,8 @@ def build_source_audio_controls() -> dict[str, Any]:
     return {
         "src_audio_row": src_audio_row,
         "src_audio": src_audio,
+        "youtube_url_src": youtube_url_src,
+        "fetch_youtube_src_btn": fetch_youtube_src_btn,
         "analyze_btn": analyze_btn,
         "extract_help_group": extract_help_group,
     }
@@ -141,6 +156,8 @@ def build_source_track_and_code_controls() -> dict[str, Any]:
     return {
         "src_audio_row": source_audio_controls["src_audio_row"],
         "src_audio": source_audio_controls["src_audio"],
+        "youtube_url_src": source_audio_controls["youtube_url_src"],
+        "fetch_youtube_src_btn": source_audio_controls["fetch_youtube_src_btn"],
         "analyze_btn": source_audio_controls["analyze_btn"],
         "extract_help_group": source_audio_controls["extract_help_group"],
         "track_name": track_selection_controls["track_name"],

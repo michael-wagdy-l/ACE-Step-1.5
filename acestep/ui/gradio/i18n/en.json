@@ -90,6 +90,8 @@
     "source_audio": "Source Audio",
     "convert_codes_btn": "Convert to Codes",
     "analyze_btn": "🔍 Analyze",
+    "youtube_url_placeholder": "Paste a YouTube URL...",
+    "fetch_youtube_btn": "⬇️ Fetch",
     "sample_btn": "🎲 Click Me",
     "lm_codes_hints": "🎼 LM Codes Hints",
     "lm_codes_audio_upload_label": "Audio → Codes (utility)",
@@ -350,7 +352,10 @@
     "invalid_timesteps_format": "⚠️ Invalid timesteps format. Using default schedule.",
     "timesteps_out_of_range": "⚠️ Timesteps must be in range [0, 1]. Using default schedule.",
     "timesteps_count_mismatch": "⚠️ Timesteps count ({actual}) differs from inference_steps ({expected}). Using timesteps count.",
-    "audio_format_invalid": "{role} format is invalid or unsupported. Please upload a valid audio file."
+    "audio_format_invalid": "{role} format is invalid or unsupported. Please upload a valid audio file.",
+    "youtube_url_missing": "⚠️ Please paste a YouTube URL first.",
+    "youtube_fetch_failed": "❌ Failed to fetch YouTube audio: {error}",
+    "youtube_fetch_success": "✅ Audio fetched from YouTube"
   },
   "training": {
     "tab_title": "🎓 LoRA Training",

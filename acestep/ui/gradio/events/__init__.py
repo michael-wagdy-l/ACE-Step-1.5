@@ -12,6 +12,7 @@ from .wiring import (
     register_generation_metadata_handlers,
     register_generation_mode_handlers,
     register_generation_run_handlers,
+    register_generation_youtube_handlers,
     register_results_aux_handlers,
     register_results_restore_and_lrc_handlers,
     register_results_save_button_handlers,
@@ -72,6 +73,7 @@ def setup_event_handlers(demo, dit_handler, llm_handler, dataset_handler, datase
         auto_checkbox_inputs=auto_checkbox_inputs,
         auto_checkbox_outputs=auto_checkbox_outputs,
     )
+    register_generation_youtube_handlers(wiring_context)
 
     register_generation_mode_handlers(
         wiring_context,
