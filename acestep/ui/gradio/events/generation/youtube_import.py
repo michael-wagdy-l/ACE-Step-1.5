@@ -42,6 +42,11 @@ def download_youtube_audio_to_temp(url: str) -> str:
         "noplaylist": True,
         "quiet": True,
         "no_warnings": True,
+        # The default "web" client's stream URLs frequently come back 403 from
+        # YouTube's signature/token checks (common from datacenter IPs, e.g.
+        # Colab). The Android/iOS clients use a different extraction path that
+        # isn't subject to the same check, so try them first.
+        "extractor_args": {"youtube": {"player_client": ["android", "ios", "web"]}},
     }
     with YoutubeDL(ydl_opts) as ydl:
         ydl.extract_info(url, download=True)
