@@ -1939,6 +1939,14 @@ class LLMHandler:
         if lyrics:
             metadata['lyrics'] = lyrics
 
+        if not metadata:
+            logger.warning(
+                f"Understanding produced no metadata fields. "
+                f"Output text preview: {output_text[:200]!r}"
+            )
+            status_msg = "❌ Failed to parse any metadata from the model output"
+            return metadata, status_msg
+
         logger.info(f"Understanding completed. Generated {len(metadata)} metadata fields")
         if constrained_decoding_debug:
             logger.debug(f"Generated metadata: {list(metadata.keys())}")
