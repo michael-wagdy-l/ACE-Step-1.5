@@ -31,9 +31,12 @@ _ACCENT_THEME = gr.themes.Soft().set(
     button_primary_background_fill_dark="#ffffff",
     button_primary_background_fill_hover_dark="#f2f2f2",
     button_primary_border_color_dark="#ffffff",
+    button_primary_border_color_hover_dark="#ffffff",
     button_primary_text_color_dark="#111111",
     button_secondary_background_fill_hover_dark="#ffffff",
     button_secondary_text_color_hover_dark="#111111",
+    button_cancel_background_fill_hover_dark="#ffffff",
+    button_cancel_text_color_hover_dark="#111111",
     slider_color_dark="#ffffff",
     input_border_color_focus_dark="#ffffff",
     block_label_background_fill_dark="#ffffff",
@@ -46,10 +49,15 @@ _ACCENT_THEME = gr.themes.Soft().set(
     loader_color_dark="#ffffff",
     link_text_color_dark="#ffffff",
     link_text_color_hover_dark="#f2f2f2",
+    link_text_color_active_dark="#ffffff",
+    link_text_color_visited_dark="#ffffff",
     stat_background_fill_dark="#ffffff",
-    # checkbox fill (the small box itself) left at the default accent color: its checkmark
-    # icon is a fixed white SVG with no separate color variable, so a white fill would make
-    # it invisible.
+    # The fill behind the checkmark/radio-dot icon defaults to indigo (Soft theme's
+    # primary_700). Its icon is a fixed white SVG with no separate color variable, so
+    # a white fill would make the icon invisible against the (also white) selected
+    # pill background - use black instead to drop the purple tint while keeping the
+    # white icon visible against it.
+    checkbox_background_color_selected_dark="#111111",
 )
 from acestep.ui.gradio.interfaces.dataset import create_dataset_section
 from acestep.ui.gradio.interfaces.generation import (
@@ -349,6 +357,37 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
         .auto-toggle input[type="checkbox"] {
             width: 13px !important;
             height: 13px !important;
+        }
+
+        /* --- Pill-style radio/checkbox (Simple/Custom/Remix/Repaint, etc.) hover fix --- */
+        /* Gradio's default hover state renders the label text in white, which is
+           unreadable against the light hover background used in dark mode. Covers
+           both radio and checkbox pills, which share the same hover styling. */
+        .dark label:has(input[type="radio"]):hover,
+        .dark label:has(input[type="radio"]):hover span,
+        .dark label:has(input[type="checkbox"]):hover,
+        .dark label:has(input[type="checkbox"]):hover span {
+            color: #111111 !important;
+        }
+
+        /* --- Remove indigo/purple accent color in dark mode --- */
+        /* --color-accent (used for links, the upload-icon hover state, and other
+           accent details) has no separate dark-mode variant in Gradio's theme
+           schema, so it stays the Soft theme's indigo in both light and dark mode.
+           Override the variable directly, scoped to dark mode only. */
+        .dark {
+            --color-accent: #ffffff;
+        }
+
+        /* --- Audio upload dropzone text --- */
+        /* "Drop audio here" / "click to upload" inherits --block-label-text-color,
+           which is overridden to black above for the small floating block-label chip.
+           That makes the upload placeholder unreadable against the dark background,
+           so restore it to white here. Matched structurally (icon-wrap + "or" span)
+           since Gradio's own class names carry a build-specific svelte-hash suffix. */
+        .dark .wrap:has(> .icon-wrap):has(.or),
+        .dark .wrap:has(> .icon-wrap):has(.or) * {
+            color: #ffffff !important;
         }
         """ + HELP_MODAL_CSS,
     ) as demo:
