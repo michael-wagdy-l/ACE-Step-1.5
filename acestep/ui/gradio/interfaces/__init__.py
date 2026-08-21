@@ -21,8 +21,21 @@ Layout:
   │  └───────────────┴────────────────┘  │
   └──────────────────────────────────────┘
 """
+import os
+
 import gradio as gr
 from acestep.ui.gradio.i18n import get_i18n, t
+
+# Absolute path so the logo resolves correctly regardless of the process's
+# working directory when launched (Gradio's /file= route resolves relative
+# paths against cwd, not this module's location).
+_LOGO_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__)
+    ))))),
+    "assets",
+    "logo.png",
+)
 
 # Accent color for the UI (buttons, focus rings, sliders, labels, links, etc.) - white in
 # dark mode only; light mode keeps the Soft theme's default indigo/purple (primary_hue and
@@ -394,7 +407,7 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
         
         gr.HTML(f"""
         <div class="main-header">
-            <img src="/file=assets/logo.png" alt="logo" class="app-logo" />
+            <img src="/file={_LOGO_PATH}" alt="logo" class="app-logo" />
             <h1>{t("app.title")}</h1>
             <p>{t("app.subtitle")}</p>
         </div>
