@@ -372,13 +372,19 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
             height: 13px !important;
         }
 
-        /* --- Pill-style radio/checkbox (Simple/Custom/Remix/Repaint, etc.) hover fix --- */
-        /* Gradio's default hover state renders the label text in white, which is
-           unreadable against the light hover background used in dark mode. Covers
-           both radio and checkbox pills, which share the same hover styling. */
+        /* --- Radio/checkbox hover fix (dark mode) --- */
+        /* Gradio's default hover state renders both the label text and the
+           hover background in dark colors, which is unreadable in dark mode
+           (black text on a black background). Force a light hover background
+           with dark text so any checkbox/radio - pill-style groups (Simple/
+           Custom/Remix/Repaint, etc.) or plain single checkboxes - stays
+           readable on hover. */
         .dark label:has(input[type="radio"]):hover,
+        .dark label:has(input[type="checkbox"]):hover {
+            background-color: #ffffff !important;
+            color: #111111 !important;
+        }
         .dark label:has(input[type="radio"]):hover span,
-        .dark label:has(input[type="checkbox"]):hover,
         .dark label:has(input[type="checkbox"]):hover span {
             color: #111111 !important;
         }
