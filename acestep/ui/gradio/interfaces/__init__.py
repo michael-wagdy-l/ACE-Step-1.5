@@ -145,7 +145,7 @@ def create_gradio_interface(dit_handler, llm_handler, dataset_handler, init_para
             margin-bottom: 2rem;
         }
         .app-logo {
-            height: 64px;
+            height: 200px;
             margin: 0 auto 0.5rem;
             display: block;
         }
